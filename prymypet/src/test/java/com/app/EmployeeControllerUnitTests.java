@@ -1,8 +1,5 @@
 package com.app;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -22,24 +19,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.request.RequestContextHolder;	
+import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.app.controller.ShopController;
-import com.app.entity.ListShops;
-import com.app.entity.Shop;
-import com.app.repository.ShopCRUDRepository;
+import com.app.controller.EmployeeController;
+import com.app.entity.Employee;
+import com.app.entity.Employees;
+import com.app.repository.EmployeeCRUDRepository;
 
 @ExtendWith(MockitoExtension.class)
-public class PrymypetApplicationTests {
+public class EmployeeControllerUnitTests {
 	
 	@InjectMocks
-	ShopController shopController;
+	EmployeeController employeeController;
 
 	@Mock
-	ShopCRUDRepository shopRepositoryMock;
+	EmployeeCRUDRepository employeeRepositoryMock;
 
-	/*@Test
+	@Test
 	public void testAddEmployee() {
 
 		// Given Algun Contexto de Variables
@@ -63,30 +60,30 @@ public class PrymypetApplicationTests {
 		assertThat(responseEntity.getHeaders().getLocation().getPath()).isEqualTo("/1");
 
 	}
-*/
+
 	@Test
 	public void testFindAll() {
 		// given
-		Shop Shop1 = new Shop((long) 002, "Bello", "Animalae", "CRA42");
-		Shop Shop2 = new Shop((long) 0, "Bello", "Animo", "Cra 44");
-		List<Shop> list = new ArrayList<Shop>();
-		list.addAll(Arrays.asList(Shop1, Shop2));
+		Employee employee1 = new Employee((long) 0, "Lokesh", "Gupta", "howtodoinjava@gmail.com");
+		Employee employee2 = new Employee((long) 0, "Alex", "Gussin", "example@gmail.com");
+		List<Employee> list = new ArrayList<Employee>();
+		list.addAll(Arrays.asList(employee1, employee2));
 
-		when(shopRepositoryMock.findAll()).thenReturn(list);
+		when(employeeRepositoryMock.findAll()).thenReturn(list);
 
 		
 		// when
-		ListShops result = shopController.getAllShopApi();
+		Employees result = employeeController.getEmployees();
 
 		// then
-		assertThat(result.getShopList().size()).isEqualTo(2);
+		assertThat(result.getEmployeeList().size()).isEqualTo(2);
 
-		assertThat(result.getShopList().get(0).getShop_name()).isEqualTo(Shop1.getShop_name());
+		assertThat(result.getEmployeeList().get(0).getFirstName()).isEqualTo(employee1.getFirstName());
 
-		assertThat(result.getShopList().get(1).getShop_name()).isEqualTo(Shop2.getShop_name());
+		assertThat(result.getEmployeeList().get(1).getFirstName()).isEqualTo(employee2.getFirstName());
 	}
 
-	/*
+	
 	
 	@Test
 	public void updateEmployeeTest() {
@@ -131,8 +128,7 @@ public class PrymypetApplicationTests {
 		assertThat(responseEntityUpdate.equals(  HttpStatus.OK ));
 		
 	}
-	*/
+	
 	
 	
 }
-
