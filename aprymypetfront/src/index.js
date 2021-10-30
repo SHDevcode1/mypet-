@@ -3,6 +3,6 @@ import ReactDOM from "react-dom";
 import App from "./containers/app/App";
 import AppRoutes from "./routes/AppRoutes"
 ReactDOM.render(
-              <App />,
+              <AppRoutes />,
                document.getElementById("root")
 );
