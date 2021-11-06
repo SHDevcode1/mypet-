@@ -37,7 +37,7 @@ public class CustomerController
 
     //***Api Final Front
 	@CrossOrigin(origins = "*")
-    @PostMapping(path= "/addemployee", consumes = "application/json", produces = "application/json")
+    @PostMapping(path= "/addcustomer", consumes = "application/json", produces = "application/json")
 	public Customer addNewCustomerApi(@RequestBody Customer customer) {
         //add resource
      	customer = customerRepository.save(customer);
