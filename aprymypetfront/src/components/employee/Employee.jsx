@@ -5,7 +5,7 @@ import AddEmployeeForm from "./AddEmployeeForm";
 import EditEmployeeForm from "./EditEmployeeForm";
 import axios from "axios";
 
-export default function Employee() {
+const Employee = () => {
   const EmployeeData = [
     { id: 1, firsName: "Juan", lastName: "Tania", email: "floppydiskette" },
     { id: 2, firsName: "Perez", lastName: "Craig", email: "siliconeidolon" },
@@ -13,7 +13,7 @@ export default function Employee() {
   ];
   const [employees, setEmployees] = useState(EmployeeData);
   const [showLoading, setShowLoading] = useState(true);
-  const apiUrl = "http://localhost:8282/api/employeeCustomAPI";
+  const apiUrl = "http://localhost:8282/api/employeeCustomAPI/";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,6 +22,7 @@ export default function Employee() {
     };
     fetchData();
   }, []);
+
 
 
 
@@ -43,14 +44,12 @@ export default function Employee() {
     /*
     employee.id = employees.length + 1;
     setEmployees([...employees, employee]);
-
     const data = {
       id: parseInt(employee.id),
       firstName: employee.firstName,
       lastName: employee.lastName,
       email: employee.email,
     };
-
     axios
       .post(apiUrl, data)
       .then((result) => {
@@ -155,3 +154,4 @@ export default function Employee() {
   );
 };
 
+export default Employee;
