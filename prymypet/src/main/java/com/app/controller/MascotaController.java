@@ -35,7 +35,6 @@ public class MascotaController {
 	@Autowired
 	private MascotaQUERYRepository mascotaRepositoryQuery;
 
-
     //***Api Final Front
 	@CrossOrigin(origins = "*")
     @PostMapping(path= "/addmascota", consumes = "application/json", produces = "application/json")

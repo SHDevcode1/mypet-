@@ -13,11 +13,11 @@ const Mascota = () => {
   ];
   const [mascota, setMascotas] = useState(MascotaData);
   const [showLoading, setShowLoading] = useState(true);
-  const apiUrl = "http://localhost:8282/employeeAPI/";
+  const apiUrl = "http://localhost:8080/api/mascotaCustomAPI";
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(apiUrl + "mascotagetall");
+      const result = await axios(apiUrl + "mascotasgetall");
       setMascotas(result.data.mascotaList);
     }; 
     fetchData();
@@ -81,21 +81,21 @@ const Mascota = () => {
     nombreMascota: ""
   };
 
-  const [currentMascota, setCurrentEmployee] = useState(initialFormState);
+  const [currentMascota, setCurrentMascota] = useState(initialFormState);
 
   const editRow = (mascota) => {
     setEditing(true);
     setCurrentMascota({
       id: mascota.id,
-      firstName: mascota.nombreMascota,
+      nombreMascota: mascota.nombreMascota,
     });
   };
 
-  const updateEmployee = (id, updatedEmployee) => {
+  const updateMascota = (id, updatedMascota) => {
     setEditing(false);
     setMascotas(
       mascotas.map((mascota) =>
-        employee.id === id ? updatedMascota : mascota
+        mascota.id === id ? updatedMascota : mascota
       )
     );
     const data = {
@@ -105,7 +105,7 @@ const Mascota = () => {
     axios
       .post(apiUrl + "updatemascota", data)
       .then((result) => {
-        //console.log("Updated");
+        console.log("Updated");
       })
       .catch((error) => setShowLoading(false));
   };

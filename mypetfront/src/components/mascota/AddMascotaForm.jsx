@@ -8,8 +8,8 @@ const [mascota, setMascota] = useState(initialFormState);
 
 const handleInputChange = (event) => {
   const { name, value } = event.target;
-        //console.log(event);
-  setEmployee({ ...mascota, [name]: value });
+         console.log(event);
+  setMascota({ ...mascota, [name]: value });
 };
 
   return (
