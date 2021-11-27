@@ -4,20 +4,20 @@ const ShopTable = (props) => (
   <table>
     <thead>
       <tr>
-        <th>ID BD</th>
-        <th>firstName</th>
-        <th>lastName</th>
-        <th>email</th>
+        <th>NIT_Shop</th>
+        <th>ShopName</th>
+        <th>City</th>
+        <th>Ubication</th>
       </tr>
     </thead>
     <tbody>
       {undefined !== props.shops && props.shops.length > 0 ? (
         props.shops.map((shop) => (
-          <tr key={shop.id.toString()}>
-            <td>{shop.id}</td>
-            <td>{shop.firstName}</td>
-            <td>{shop.lastName}</td>
-            <td>{shop.email}</td>
+          <tr key={shop.nit_Shop.toString()}>
+            <td>{shop.nit_Shop}</td>
+            <td>{shop.shopName}</td>
+            <td>{shop.city}</td>
+            <td>{shop.ubication}</td>
             <td>
               <button
                 onClick={() => {
@@ -28,7 +28,7 @@ const ShopTable = (props) => (
                 Edit
               </button>
               <button
-                onClick={() => props.deleteShop(shop.id)}
+                onClick={() => props.deleteShop(shop.nit_Shop)}
                 className="button muted-button"
               >
                 Delete

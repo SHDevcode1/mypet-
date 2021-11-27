@@ -16,7 +16,7 @@ const EditShopForm = (props) => {
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        props.updateShop(shop.nit, shop);
+        props.updateShop(shop.nit_Shop, shop);
       }}
     >
       <label>Nombre de Tienda</label>
@@ -34,10 +34,10 @@ const EditShopForm = (props) => {
         onChange={handleInputChange}
       />
 
-      <label>email</label>
+      <label>Ubicación</label>
       <input
         type="text"
-        name="ubicacion"
+        name="ubication"
         value={shop.ubication}
         onChange={handleInputChange}
       />

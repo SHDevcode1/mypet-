@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const AddShopForm = (props) => {
 
-const initialFormState = { nit: null, NameShop: "", City: "" , ubication: ""};
+const initialFormState = { nit_Shop: null, NameShop: "", city: "" , ubication: ""};
 const [shop, setShop] = useState(initialFormState);
 
 const handleInputChange = (event) => {
@@ -15,36 +15,36 @@ const handleInputChange = (event) => {
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        if (!shop.NameShop || !shop.City || !shop.ubication)
+        if (!shop.NameShop || !shop.city || !shop.ubication)
           return;
 
         props.addShop(shop);
         setShop(initialFormState);
       }}
     >
-      <label>Nombre de tienda</label>
+      <label>Nombre de tienda: </label>
       <input
         type="text"
         name="NameShop"
         value={shop.NameShop}
         onChange={handleInputChange}
       />
-      <label>City</label>
+      <label>Ciudad: </label>
       <input
         type="text"
-        name="lastName"
-        value={shop.City}
+        name="city"
+        value={shop.city}
         onChange={handleInputChange}
       />
 
-      <label>Ubicación</label>
+      <label>Ubicación: </label>
       <input
         type="text"
         name="ubication"
         value={shop.ubication}
         onChange={handleInputChange}
       />
-      <button>Add new shop</button>
+      <button>Agregar tienda</button>
     </form>
   );
 };
