@@ -16,5 +16,5 @@ public class ListShops
  
     public void setShopList(List<Shop> shopList) {
         this.shopList = shopList;
-    }
+     }
 }
