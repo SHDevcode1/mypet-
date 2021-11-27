@@ -22,7 +22,7 @@ import com.app.entity.Shop;
 import com.app.repository.ShopCRUDRepository;
 import com.app.repository.ShopQueryRepository;
 import com.app.entity.ListShops;
-
+ 
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
