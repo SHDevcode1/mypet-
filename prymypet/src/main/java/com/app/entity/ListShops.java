@@ -12,7 +12,7 @@ public class ListShops
             shopList = new ArrayList<>();
         }
         return shopList;
-    }
+     }
  
     public void setShopList(List<Shop> shopList) {
         this.shopList = shopList;
